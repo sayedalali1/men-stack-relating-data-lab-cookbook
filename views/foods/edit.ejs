@@ -1,0 +1,42 @@
+<!-- views/applications/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing <%= food.name %></title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= food.name %></h1>
+      <form     action="/users/<%= user._id %>/foods/<%= food._id %>?_method=PUT"
+        method="POST">
+
+    <fieldset>
+    <label for="name">Name:</label>
+    <input type="text" name="name"  value="<%= food.name%>">
+    </fieldset>
+
+    <fieldset>
+    <label for="description">Description:</label>
+    <input type="text" name="description" value="<%= food.description%>">
+    </fieldset>
+
+    <fieldset>
+    <label for="ingredients">Ingredients:</label>
+    <input name="ingredients" value=" <%= food.ingredients %>">
+    </fieldset>
+
+    <fieldset>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="appetizer" <%= food.category === 'appetizer' ? 'selected' : '' %>>Appetizer</option>
+        <option value="main" <%= food.category === 'main' ? 'selected' : '' %>>Main</option>
+        <option value="dessert" <%= food.category === 'dessert' ? 'selected' : '' %>>Dessert</option>
+        <option value="drink" <%= food.category === 'drink' ? 'selected' : '' %>>Drink</option>
+      </select>
+    </fieldset>
+    
+    <button type="submit">Update the food</button>
+  </form>
+  </body>

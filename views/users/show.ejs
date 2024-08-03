@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= user.username %>'s Pantry</title>
+</head>
+<body>
+    
+    <h1><%= user.username %>'s Pantry</h1>
+    <h2>Pantries</h2>
+    <ul>
+      <% user.foods.forEach(food => { %>
+        <li>
+          <div>
+            <h3><%= food.name %></h3>
+            <p><%= food.description %></p>
+         </div>
+        </li>
+      <% }); %>
+    </ul>
+</body>
+</html>

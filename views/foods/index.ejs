@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pantry</title>
+  </head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <a href="/users/<%=user._id%>/foods/new">Add a New Food</a>
+     <h1>Welcome to my Pantry</h1>
+     <ul>
+        <% if (foods) { %>
+          <% foods.forEach((food) => { %>
+            <li>
+              <a href="/users/<%= user._id %>/foods/<%= food._id %>">
+                <%= food.name %>
+              </a>
+            </li>
+          <% }) %>
+        <% } else { %>
+          <li>No foods available.</li>
+        <% } %>
+      </ul>
+  </body>
+</html>
