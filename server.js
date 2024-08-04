@@ -9,6 +9,8 @@ const session = require('express-session');
 // server.js
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
+
+
 // server.js
 
 const authController = require('./controllers/auth.js');
@@ -27,6 +29,8 @@ mongoose.connection.on('connected', () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

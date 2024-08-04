@@ -5,19 +5,6 @@ const foodSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-    required: true
-  },
-  ingredients: {
-    type: String,
-    required: true
-  }, 
-  category: {
-    type: String,
-    required: true,
-    enum: ['appetizer', 'main', 'dessert', 'drink']
-  }
 });
 
 const userSchema = mongoose.Schema({
